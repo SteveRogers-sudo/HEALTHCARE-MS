@@ -1,0 +1,55 @@
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+>
+<!-- <p>add-appointment works!</p>
+<div class="col-md-12 offset-12">
+    <div class="card">
+      <h4 class="card-header"><label>Add Test</label></h4>
+      <div class="card bg-dark text-white">
+      <div class="card-body">
+        <form>
+          <div>
+            <label for="centreName">Center Name:</label><br>
+            <select name="centreName" [(ngModel)]="centre.centreName">
+              <option *ngFor="let cl of centersList" value={{cl}}>
+                {{cl}}
+              </option>`
+            </select>
+          </div>
+          </form>
+      </div>
+      </div>
+      </div>
+</div> -->
+    <div class="col-md-6 offset-3">
+  
+      <div class="card">
+        <h4 class="card-header"><label>&nbsp;&nbsp;Diagnostic Centers
+          Available</label></h4>
+        <div class="card-body">
+          <table class="table table-striped" style=font-size:110%;>
+            <thead>
+              <tr>
+                <th scope="col">Center Id</th>
+                <th scope="col">Center Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let diagnosticCentre of diagnosticCentres">
+                <td>{{diagnosticCentre.centreId}}</td>
+                <td>{{diagnosticCentre.centreName}}</td>
+                <!-- <td><button class="btn btn-dark" (click)="deleteCentre(diagnosticCentre)"> <span
+                      class="glyphicon glyphicon-trash"></span> Delete </button></td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer text-muted">
+          *Select Diagnostic centers you want to delete
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+</head>
+
+<body>
+  <br>
+  <div class="col-md-6 offset-3">
+    
+    <div class="card">
+      <h4 class="card-header"><label>Available Tests</label></h4>
+      <div class="card-body">
+        <table class="table table-striped"  style=font-size:110%; >
+          <thead>
+            <tr>
+              <th scope="col">Test Name</th>
+              <th scope="col">Center Name</th>
+              <!-- <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test Id</th> -->
+              <!-- <th scope="col">&nbsp;&nbsp;&nbsp;Action</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let diagnosticCentre of diagnosticCentres">
+              <td>{{diagnosticCentre.testName}}</td>
+              <td>{{diagnosticCentre.centre.centreName}}</td>
+              <!-- <td>{{diagnosticCentre.testId}}</td> -->
+              <td><button class="btn btn-dark" (click)="deleteTest(diagnosticCentre)"> <span
+                class="glyphicon glyphicon-trash chips"></span> Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer text-muted">
+        *Select Test which you want to delete
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

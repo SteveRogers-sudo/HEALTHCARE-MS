@@ -1,0 +1,107 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<div class="col-md-6 offset-3">
+    <br><br>
+    <h6 style="text-align:center;"> Choose a center to maken an appointment</h6>
+    <br>
+    <table class="table table-hover  table-bordered" *ngIf="centre != null  else elseBlock">
+        <thead class="thead-light">
+            <tr>
+                <th scope='col'>Center No. </th>
+                <th scope='col'>Diagnostic Center Name</th>
+                <th scope='col'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of centre">
+                <td> {{user.centreId}} </td>
+                <td> {{user.centreName}} </td>
+                <td>
+                    <button class="btn btn-large btn-block btn-primary" value="DiagnosticCenter"
+                        (click)="onSelect(user)"> Select </button>
+                </td>
+            </tr>
+    </table>
+    <ng-template #elseBlock>
+        <h4> No centers available right now, check in later! </h4>
+    </ng-template>
+
+</div>
+<br>
+<div class="col-md-6 offset-3">
+    <br>
+    <h6 class="center"> Available Tests </h6>
+    <br>
+    <table class="table table-hover table-bordered" *ngIf="user != null else elseBlock">
+        <thead class="thead-light">
+            <tr>
+                <th scope='col'>Test ID</th>
+                <th scope='col'>Type of Test</th>
+                <th scope='col'>&nbsp;&nbsp;&nbsp;Action</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let tester of tests" class="w3-hover-black">
+            <td>{{tester.testId}}</td>
+            <td>{{tester.testName}}</td>
+            <td>
+                <button class="btn btn-large btn-block btn-primary" value="Tests" (click)="onTest(tester)"> Select
+                </button>
+            </td>
+        </tr>
+    </table>
+    <ng-template #elseBlock>
+        <h4> Select a Diagnostic Center to choose a Test </h4>
+    </ng-template>
+    <br>
+</div>
+
+<div *ngIf="dateCheck">
+    <form>
+        <div class="col-md-5 offset-3">
+            <h6>Choose a Date and Time to confirm your slot</h6>
+            <br>
+
+
+
+            <div class="form-group">
+
+                <input type="datetime-local" [(ngModel)]="app.dateTimeSlot" name="slot" class="form-control " id="slot">
+
+            </div>
+
+
+            <button class="center" class="btn btn-success" (click)="onDate()">Confirm slot</button>
+            <br>
+
+            <div *ngIf="userIdCheck">
+                    <form>
+                        <div class="form-group">
+                            <br>
+                            <h6> Confirm your appointment by entering your Phone number</h6>
+                            <br>
+                            <input type="text" pattern=[0-9]* minlength="10" maxlength="10" [(ngModel)]="app.userId" name="slot" class="form-control" name="contactNumber" class="form-control" id="contactNumber" #contactNumber="ngModel" required>
+                                <div *ngIf="contactNumber.errors  && contactNumber.dirty && contactNumber.touched" class="alert alert-danger">
+                                       <div *ngIf="contactNumber.errors.required">contactNumber required</div>
+                                       <div *ngIf="contactNumber.errors.minlength">contactNumber should be 10 digits</div>
+                                <div [hidden]="!contactNumber.errors.pattern"> & No charecters are allowed</div>
+                                   </div>
+                        </div>
+
+
+                        <button class="center" class="btn btn-success" (click)="onConfirm()">Make an
+                            Appointment</button>
+                        <div *ngIf="confirmation">
+                            <br>
+                            <h4 class="center">Your slot is registered &#9989;</h4><br>
+                            <h5>You may check your appointment status in the view appointments section</h5>
+                        </div>
+                    </form>
+                
+            </div>
+        </div>
+    </form>
+</div>

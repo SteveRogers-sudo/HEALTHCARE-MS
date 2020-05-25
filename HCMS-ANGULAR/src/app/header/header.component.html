@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Health-Care System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
+  
+  <style>
+    .navbar-nav>li {
+      padding-left: 20px;
+      padding-right: 15px;
+    }
+
+    .navbar-nav>li {
+      margin-left: 50px;
+      margin-right: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3 class="bg-secondary text-white"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+ Health Care Management System</h3>
+  <br>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+    
+    <!-- <a class="navbar-brand" href="/login">
+      <img src='https://banner2.cleanpng.com/20180329/etw/kisspng-hospital-computer-icons-clinic-health-care-hospital-5abc6de7255c75.688157871522298343153.jpg' alt="logo" style="width:40px;">
+    </a> -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+    
+      <ul class="navbar-nav">
+  
+      <li class="nav-item">
+        <a class="nav-link" href="/login">HOME</a>
+      </li>
+
+      <li class="nav-item active">
+      <a  *ngIf="loginService.isUsersLoggedIn()==='admin'" routerLink="/" class="nav-link">Add Center</a>
+      </li>
+
+      <li class="nav-item active">
+      <a  *ngIf="loginService.isUsersLoggedIn()==='admin'" routerLink="/removecentre" class="nav-link" >Remove Center</a>
+      </li>
+
+      <li class="nav-item active">
+        <a *ngIf="loginService.isUsersLoggedIn()==='admin'" routerLink="/addtest" class="nav-link" >Add Test</a>
+      </li>
+
+      <li class="nav-item active">
+        <a *ngIf="loginService.isUsersLoggedIn()==='admin'" routerLink="/removetest" class="nav-link">Remove Test</a>
+      </li>
+
+      <li class="nav-item active">
+        <a *ngIf="loginService.isUsersLoggedIn()==='admin'" routerLink="/approveappointment" class="nav-link">Approve Appointment</a>
+      </li>
+
+      <li class="nav-item active">
+        <a *ngIf="loginService.isUsersLoggedIn()=='user'" routerLink="/makeappointment" class="nav-link">Make Appointment</a>
+      </li>
+
+      <!-- <li class="nav-item active">
+        <a *ngIf="loginService.isUserLoggedIn()==true" routerLink="/addappointment" class="nav-link">Add Appointment</a>
+      </li> -->
+
+      <li class="nav-item active">
+        <a *ngIf="loginService.isUsersLoggedIn()=='user'" routerLink="/viewappointment" class="nav-link">View Appointment</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="bg-dark" *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link"></a></li>
+    </ul>
+    
+  </div>
+  </nav>
