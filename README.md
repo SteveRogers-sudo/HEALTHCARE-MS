@@ -3,7 +3,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 
-Health Care Management System Project for SPRINT-2 Capgemini. Divided into three modules.
+Health Care Management System Project for SPRINT-2 Capgemini. Divided into three modules i.e. Diagnostic Center MS, Diagnostic Test MS, Appointment MS. Running with Config-Server properties.
 
 ## Development server
 
